@@ -1,0 +1,76 @@
+<style>
+    input[type='text'],input[type='number']{
+        width:200px;
+        border-top:none;
+        border-right:none;
+        border-left:none;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+        -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+
+    }
+
+    .btn-primary{
+        width:200px !important;
+    }
+
+    p{
+        text-align:center;
+        font-weight:bold;
+    }
+
+   
+</style>
+
+<!-- Je vais ajouter la possibilite de faire la recherche -->
+<div class="row">
+    <div class="col-sm-6">
+        <!-- Debut formulaire -->
+
+        <div style="width:200px;margin-top:50px">
+    <p>Ajouter un utilisateur</p>
+    </div>
+    <div id="form-horizontal">
+    <input id="fname" class="form-control" placeholder="Votre prenom" type="text" name="user[fname]">
+    <input id="lname" class="form-control" placeholder="Votre nom" type="text" name="user[lname]">
+    <input id="age" class="form-control" placeholder="Votre age" type="number" name="user[age]">
+    <button id="btn-ajax" class="btn btn-primary">Ajouter</button>
+    </div>
+    
+
+        <!-- Fin formulaire -->
+    </div>
+    <div class="col-sm-6">
+        <!-- Debut formulaire de recherche -->
+        <div class="input-group">
+        <input type="text" id="search" class="form-control">
+        <div class="input-group-addon"><a href="#"><%= image_tag 'search.png' %></a></button></div>
+        </div>
+        <!-- Fin du formualaire de recherche -->
+    </div>
+</div>
+<div class="row">
+    <!-- Debut du tableau -->
+
+    <table class="table table-bordered table-responsive table-hover">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+    <tr>
+        <td><%= user.lname %></td>
+        <td><%= user.fname %></td>
+        <td><%= user.age %></td>
+    </tr>
+    <% end %>
+    </tbody>
+</table>
+
+    <!-- Fin du tableau -->
+</div>
+
+
